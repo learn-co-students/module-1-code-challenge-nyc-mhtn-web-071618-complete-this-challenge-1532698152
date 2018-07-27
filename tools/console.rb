@@ -12,14 +12,18 @@ end
 otb = Restaurant.new("On The Border")
 neway = Restaurant.new("Neway")
 tacopronto = Restaurant.new("Taco Pronto")
+haab = Restaurant.new("Haab")
 
 jess = Customer.new("Jessica","Long")
 jared= Customer.new("Jared", "Long")
 leah = Customer.new("Leah", "Long")
+pam = Customer.new("Pam", "Long")
+dianna = Customer.new("Dianna", "Llamas")
 
 rv1 = Review.new(1, "Never Again", jess, tacopronto)
 rv2= Review.new(3, "Once a year", jared, neway)
 rv3 = Review.new(5, "Every damn day", leah, otb)
+rv4 = Review.new(2, "Meh", pam, haab)
 
 
 

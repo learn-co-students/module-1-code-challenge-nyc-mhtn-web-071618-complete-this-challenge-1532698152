@@ -16,18 +16,26 @@ class Customer
   end
 
 #find because we wanna find the first in this class method
-  def self.find_by_name(fullnames)
-    self.all.find do |fullname|
-      fullname == fullnames
+  def self.find_by_name(name)
+    self.all.find do |customer|
+      customer.full_name  == name
     end
   end
 
-#map bc we want a new array
-  def self.find_all_by_first_name(first_names)
-      self.all.map do | first_name |
-        first_name == first_names
+#map bc we want a new array, select
+  def self.find_all_by_first_name(names)
+      self.all.select do | name |
+        name.first_name == names.first_name
       end
   end
+
+
+def self.all_names
+  self.all.map do |customer|
+     customer.full_name
+  end
+
+end
 
 #use self for customer when creating review
 #then test and see all reviews to make sure its added
@@ -35,31 +43,27 @@ class Customer
     Review.new(rating, content, self, restaurant)
   end
 
-
-  #what do i want - > total num of reviews
-    #should do this first so i can use it later?
-    #use each
-    def num_reviews
-      count = 0
-      Review.all.each do |reviews|
-        count += reviews
-      end
-      count
-    end
-
-
-  #what do i want - >
-  #use map
-
   # first get all restraunts
   #then make another method to gets reviews
   #getting only the instance
 
   def get_all_reviews
     Review.all.select do |reviews|
-      reviews == self
+      reviews.customer == self
     end
   end
+
+  #what do i want - > total num of reviews
+    #should do this first so i can use it later?
+    #use each
+
+#or
+    def num_reviews
+      get_all_reviews.count
+    end
+
+
+
 
 #now going onelevel deeper to get restaurant
 #map returns new array

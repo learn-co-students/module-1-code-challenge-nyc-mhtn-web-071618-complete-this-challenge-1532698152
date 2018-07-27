@@ -11,13 +11,12 @@ class Restaurant
 
   def self.all
     @@all
-      binding.pry
   end
 
 
   def self.find_by_name(name)
-    self.all.find do |names|
-      names == self
+    self.all.find do |restaurant|
+      restaurant.name == name
     end
   end
 
@@ -25,7 +24,7 @@ class Restaurant
 #do this first so u can use as a helper methods for the next one
   def reviews
     Review.all.select do |reviews|
-      reviews == self
+      reviews.restaurant == self
     end
   end
 
@@ -43,7 +42,15 @@ class Restaurant
 #get restaraunts
 #divide by the numbers of instances is has to get avererage
     def average_star_rating
-
+    total = 0
+    averages = []
+      averages = reviews.map do |review|
+        review.rating
+      end
+        averages.each do |avg|
+        total += avg
+      end
+        total/averages.count
     end
 
 
@@ -51,8 +58,14 @@ class Restaurant
 #since its a string we could make it into an array then find the length
 # and compare until we get the longest one
     def longest_review
-
+        count = 0
+        longest_one = ""
+        reviews.map do |customer|
+          if customer.content.length > count
+            count = customer.content.length
+            longest_one = customer.content
+          end
+          longest_one
+      end
     end
-
-
 end
