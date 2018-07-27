@@ -33,19 +33,24 @@ class Customer
     }
   end
 
+  #get all of the reviews belong to a customer
   def reviews
     Review.all.select{|review|
       review.customer == self
     }
   end
+
+
   def add_review( restaurant, content, rating)
     Review.new(self, restaurant, content, rating)
   end
 
+  #get the reviews count belongs to a customer
   def num_reviews
     self.reviews.size
   end
 
+  #get all of the restaurants which is reviewed by a customer
   def restaurants
     reviews = self.reviews
     restaurants = reviews.map{|review|

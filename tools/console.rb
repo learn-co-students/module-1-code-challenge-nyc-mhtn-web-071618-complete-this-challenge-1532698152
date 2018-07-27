@@ -7,8 +7,6 @@ end
 # This is a convenient place to define variables and/or set up new object instances,
 # so they will be available to test and play around with in your console
 
-#binding.pry
-0 #leave this here to ensure binding.pry isn't the last line
 
 def test(str, v1=nil, v2=nil)
   if v1 == v2
@@ -48,3 +46,6 @@ test "restaurant1.customers", restaurant1.customers,[customer1,customer2]
 test "restaurant1.reviews", restaurant1.reviews, [review1,review3]
 test "restaurant1.average_star_rating", restaurant1.average_star_rating,3.5
 test "Restaurant.longest_review", restaurant2.longest_review, review5.content
+
+binding.pry
+0 #leave this here to ensure binding.pry isn't the last line
