@@ -7,6 +7,10 @@ For our purposes, a `Restaurant` has many `Reviews`, a `Customer` has many `Revi
 If you are not sketching out your domain, and thinking about single source of truth,
 you are doing it wrong :(
 
+
+#review is our source of truth !!
+#restaunt is the has many to Reviews
+
 ## Topics
 
 - Classes vs Instances
@@ -46,19 +50,20 @@ We've provided you with a console that you can use to test your code. To enter a
   - returns an array of all restaurants
 - `Restaurant.find_by_name(name)`
   - given a string of restaurant name, returns the first restaurant that matches
-
+  
+first means find, bc find selects the first thats true
 ---
 
 #### Build out the following methods on the `Review` class
 
 - `Review.all`
-  - returns all of the reviews
+  - returns all of the reviews- do @@all
 - `Review#customer`
-  - returns the customer object for that given review
-  - Once a review is created, I should not be able to change the author
+  - returns the customer object for that given review - make instance
+  - Once a review is created, I should not be able to change the author, so attr_reader
 - `Review#restaurant`
-  - returns the restaurant object for that given review
-  - Once a review is created, I should not be able to change the restaurant
+  - returns the restaurant object for that given reviewmake instance
+  - Once a review is created, I should not be able to change the restaurant so attr_reader
 - `Review#rating`
   - returns the star rating for a restaurant. This should be an integer from 1-5
 - `Review#content`
